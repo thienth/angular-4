@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {IBook} from './models/book';
+import {BookService} from './services/book.service';
 @Component({
 	moduleId: module.id,
   	selector: 'app-root',
@@ -8,6 +9,12 @@ import {IBook} from './models/book';
 })
 export class AppComponent {
   title = 'app';
+  constructor(private _bookService: BookService) {
+
+    _bookService.bookChange$.subscribe(obj => {
+      console.log(obj)
+    });
+  }
   books:IBook[] = [
   	{
   		id:1,

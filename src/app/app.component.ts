@@ -8,42 +8,27 @@ import {BookService} from './services/book.service';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'app angular 2';
+  books:IBook[];
   constructor(private _bookService: BookService) {
 
     _bookService.bookChange$.subscribe(obj => {
       console.log(obj)
     });
   }
-  books:IBook[] = [
-  	{
-  		id:1,
-  		name: 'mat biec',
-  		author: 'nguyen nhat anh',
-  		image: '/assets/images/Koala.jpg',
-  		price: 12.5
-  	},
-  	{
-  		id:2,
-  		name: 'mat xanh',
-  		author: 'nguyen nhat em',
-  		image: '/assets/images/Jellyfish.jpg',
-  		price: 12.6
-  	},
-  	{
-  		id:3,
-  		name: 'mo do',
-  		author: 'nguyen nhat bac',
-  		image: '/assets/images/Lighthouse.jpg',
-  		price: 12.7
-  	},
-  	{
-  		id:4,
-  		name: 'mat tim',
-  		author: 'nguyen nhat chau',
-  		image: '/assets/images/Tulips.jpg',
-  		price: 12.5
-  	},
 
-  ];
+  ngOnInit(){
+    this.getBooksFromApi();
+  }
+
+  getBooksFromApi(){
+
+    this._bookService.getBooks()
+          .subscribe(
+              responseData => {
+                this.books = responseData;
+              },
+              error => console.log(error)
+          )
+  }
 }

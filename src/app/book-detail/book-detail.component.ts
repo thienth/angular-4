@@ -12,6 +12,7 @@ export class BookDetailComponent {
     constructor(private _bookService: BookService) {}
 
     childAction(b){
+    	console.log(567);
       this._bookService.bookChange(b);
     }
 }

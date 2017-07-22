@@ -1,4 +1,4 @@
-<h2>{{book.name}}</h2>
+<h2 (click)="childAction(book)">{{book.name}}</h2>
 <div  [style.width.px]="200">
 <img [style.width.%]="100" [src]="book.image"/>
 </div>

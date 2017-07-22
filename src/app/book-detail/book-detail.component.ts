@@ -8,11 +8,12 @@ import {BookService} from '../services/book.service';
 })
 export class BookDetailComponent {
     @Input() book:IBook;
+    @Input() thienth:IBook;
 
     constructor(private _bookService: BookService) {}
 
     childAction(b){
-      console.log(123);
+
       this._bookService.bookChange(b);
     }
 }

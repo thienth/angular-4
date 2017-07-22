@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import {BookService} from './services/book.service';
 
@@ -10,9 +12,12 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
   declarations: [
     AppComponent,
     BookDetailComponent
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    FormsModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]
